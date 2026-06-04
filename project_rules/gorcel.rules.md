@@ -121,7 +121,7 @@ Defined once in `styles/globals.css`. Never hardcode a value that has a token.
   --margin-page:    64px;
   --margin-page-md: 32px;
   --margin-page-sm: 20px;
-  --max-content:    960px;
+  --max-content:    1282px;
   --max-text:       640px;
 
   /* Radius */
@@ -177,7 +177,7 @@ const config: Config = {
         none: '0px',
       },
       maxWidth: {
-        content: '960px',
+        content: '1282px',
         text:    '640px',
       },
       transitionTimingFunction: { DEFAULT: 'linear' },
@@ -204,6 +204,16 @@ export default config
 - **Icons** — Lucide only. `strokeWidth={1.5}`, `strokeLinecap="square"`, `strokeLinejoin="miter"`, no fill.
 - **Motion** — `linear` or `ease-in-out` only. 150–300ms. No bounce, spring, scale pops, or infinite decorative loops.
 - **`prefers-reduced-motion`** — always respected:
+
+### Home Hero WebGL Exception
+
+The home hero may use the attached `WovenLightHero` Three.js particle background as a controlled exception to the token-only color rule. This exception applies only to the WebGL particle buffer, not DOM text, buttons, cards, borders, or CSS backgrounds.
+
+- The hero section background stays `--color-paper`; do not introduce a dark panel behind the hero.
+- Because the hero surface is Paper, particle colors must use the reference component's light-surface branch: `color.setHSL(Math.random(), 0.8, 0.5)`.
+- Because the hero surface is Paper, particle material must use the reference component's light-surface branch: `blending: THREE.NormalBlending`, `transparent: true`, `opacity: 1.0`.
+- The particle canvas must have enough hero height to avoid visible clipping around the CTA row.
+- DOM typography, CTA styling, Volt periods, spacing, radius, and copy still follow the Gorcel token rules.
 
 ```css
 @media (prefers-reduced-motion: reduce) {
@@ -451,6 +461,13 @@ export default function robots(): MetadataRoute.Robots {
 
 ## 6. Component Contracts
 
+### 6.0 Layout Rail
+
+- All page-level content, section content, navbar content, footer content, and CTA band content must align to `.content-shell`.
+- `.content-shell` uses `--max-content` (`1282px`) as its maximum width and the responsive page margins (`--margin-page-sm`, `--margin-page-md`, `--margin-page`) as viewport gutters.
+- Do not combine `page-margin mx-auto max-w-content` for new layout wrappers; use `.content-shell` instead.
+- `--max-text` remains a readable text measure inside the wider `1282px` website rail.
+
 ### 6.1 Button
 
 Use shadcn/ui `<Button>` with variant overrides. Never a raw `<button>` except inside shadcn primitives.
@@ -502,9 +519,14 @@ export function AccentSquare() {
 
 ### 6.5 Nav
 
-- Server Component. No client-side hydration unless mobile menu toggle required.
+- Client Component only for mobile menu and scroll-state styling.
 - Mobile menu: shadcn/ui `<Sheet>` (Radix Dialog). No custom drawer.
 - Active link: `--color-volt` accent square indicator, not underline.
+- Height: exactly `72px`.
+- Inner content width: `.content-shell` (`1282px`) aligned with every page and section.
+- Position: fixed transparent overlay at the top of the viewport, so hero media and particles can render behind it.
+- Initial state: transparent background and transparent bottom border.
+- Scrolled state: transparent background, backdrop blur, and `--color-ink-12` bottom border.
 
 ### 6.6 Forms (Contact page)
 
@@ -530,7 +552,7 @@ export const homeContent = {
   },
   hero: {
     eyebrow: 'Custom software development · Cairo · Serving MENA',
-    h1: 'When your tools stop keeping up, we build the system that does',
+    h1Tags: ['Act', 'Work', 'Operate'] as const, // Render as Act. Work. Operate. — tags, not a sentence
     body: 'Web and mobile software for businesses held back by disconnected tools and manual work — at a fixed price, fully owned by you.',
     cta: { primary: 'Get a fixed quote', secondary: 'See what we build' },
   },

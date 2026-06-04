@@ -4,8 +4,8 @@ import { footerContent, navItems } from "@/lib/content/site";
 
 export function Footer() {
   return (
-    <footer className="page-margin border-t border-bone py-[var(--space-9)]">
-      <div className="mx-auto flex max-w-content flex-col gap-8 md:flex-row md:justify-between">
+    <footer className="border-t border-bone py-[var(--space-9)]">
+      <div className="content-shell flex flex-col gap-8 md:flex-row md:justify-between">
         <div className="flex flex-col gap-2">
           <span className="font-sans text-lg font-semibold text-ink">Gorcel</span>
           <p className="font-sans text-sm text-ink/60">{footerContent.tagline}</p>
@@ -31,7 +31,7 @@ export function Footer() {
           </ul>
         </nav>
       </div>
-      <p className="mx-auto mt-8 max-w-content font-mono text-xs text-ink/30">
+      <p className="content-shell mt-8 font-mono text-xs text-ink/30">
         {footerContent.copyright}
       </p>
     </footer>

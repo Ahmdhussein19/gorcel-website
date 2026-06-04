@@ -74,4 +74,18 @@ function SheetContent({
   );
 }
 
-export { Sheet, SheetTrigger, SheetContent };
+function SheetTitle({
+  className,
+  ...props
+}: React.ComponentProps<typeof SheetPrimitive.Title>) {
+  return <SheetPrimitive.Title className={cn(className)} {...props} />;
+}
+
+function SheetDescription({
+  className,
+  ...props
+}: React.ComponentProps<typeof SheetPrimitive.Description>) {
+  return <SheetPrimitive.Description className={cn(className)} {...props} />;
+}
+
+export { Sheet, SheetTrigger, SheetContent, SheetTitle, SheetDescription };

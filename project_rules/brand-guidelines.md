@@ -83,6 +83,10 @@ Dominant software engineering partner across Egypt and MENA — bringing global 
 - No colors outside this system
 - Volt never used as a large background for body text
 
+### Controlled Digital Exception
+
+The home page hero may use the supplied woven Three.js particle field as a canvas-only art direction exception. The page surface remains Paper, while particle colors use the reference implementation's light-surface branch: random HSL hue, saturation `0.8`, lightness `0.5`, `NormalBlending`, and opacity `1.0`. This exception is limited to the WebGL particle buffer and does not permit extra colors in CSS, typography, buttons, UI, or static illustration.
+
 ---
 
 ## 3. Typography

@@ -9,6 +9,8 @@ import { Button } from "@/components/ui/button";
 import {
   Sheet,
   SheetContent,
+  SheetDescription,
+  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { navItems } from "@/lib/content/site";
@@ -35,6 +37,10 @@ export function MobileNav() {
         </Button>
       </SheetTrigger>
       <SheetContent side="right" aria-label="Mobile navigation">
+        <SheetTitle className="sr-only">Mobile navigation</SheetTitle>
+        <SheetDescription className="sr-only">
+          Site navigation links and contact call to action.
+        </SheetDescription>
         <nav className="mt-8 flex flex-col gap-4" aria-label="Mobile">
           {navItems.map((item) => {
             const isActive = pathname === item.href;

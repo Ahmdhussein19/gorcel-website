@@ -6,7 +6,7 @@ export const homeContent = {
   },
   hero: {
     eyebrow: "Custom software development · Cairo · Serving MENA",
-    h1: "When your tools stop keeping up, we build the system that does",
+    h1Tags: ["Act", "Work", "Operate"] as const,
     body: "Web and mobile software for businesses held back by disconnected tools and manual work — at a fixed price, fully owned by you.",
     bullets: [
       "Fixed cost — agreed before we start",

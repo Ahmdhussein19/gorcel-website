@@ -7,9 +7,9 @@ export function CtaBand() {
   return (
     <section
       aria-label="Call to action"
-      className="bg-ink px-[var(--margin-page-sm)] py-[var(--space-10)] text-paper md:px-[var(--margin-page-md)] lg:px-[var(--margin-page)]"
+      className="bg-ink py-[var(--space-10)] text-paper"
     >
-      <div className="mx-auto flex max-w-content flex-col gap-6 md:flex-row md:items-center md:justify-between">
+      <div className="content-shell flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
         <p className="max-w-text font-sans text-lg leading-relaxed">
           {ctaBandContent.copy}
         </p>

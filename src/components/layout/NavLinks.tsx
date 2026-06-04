@@ -17,9 +17,9 @@ export function NavLinks() {
           <Link
             key={item.href}
             href={item.href}
-            className="flex items-center gap-2 font-sans text-sm font-medium text-ink"
+            className="flex items-baseline gap-2 font-sans text-sm font-medium text-ink"
           >
-            {isActive ? <AccentSquare /> : <span className="w-2" />}
+            {isActive ? <AccentSquare /> : <span className="inline-block h-2 w-2" />}
             {item.label}
           </Link>
         );

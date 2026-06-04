@@ -12,7 +12,7 @@ export default function WorkPage() {
   const { hero, projects, closing } = workContent;
 
   return (
-    <main id="main-content" className="page-margin mx-auto max-w-content pb-[var(--space-12)]">
+    <main id="main-content" className="content-shell pb-[var(--space-12)]">
       <section aria-label="Work overview" className="py-[var(--space-10)]">
         <h1 className="max-w-text font-sans text-4xl font-bold leading-[1.1] tracking-[-1px] text-ink md:text-[40px]">
           {hero.h1}

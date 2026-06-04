@@ -14,14 +14,16 @@ export const metadata = buildMetadata({
 
 export default function HomePage() {
   return (
-    <main id="main-content" className="page-margin mx-auto max-w-content pb-[var(--space-12)]">
+    <main id="main-content" className="pb-[var(--space-12)]">
       <HomeHero />
-      <Divider />
-      <HomeProblem />
-      <Divider />
-      <HomeServicesPreview />
-      <Divider />
-      <HomeFaq />
+      <div className="content-shell">
+        <Divider />
+        <HomeProblem />
+        <Divider />
+        <HomeServicesPreview />
+        <Divider />
+        <HomeFaq />
+      </div>
     </main>
   );
 }

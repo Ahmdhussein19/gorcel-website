@@ -12,7 +12,7 @@ export default function ContactPage() {
   const { hero, sidePanel } = contactContent;
 
   return (
-    <main id="main-content" className="page-margin mx-auto max-w-content pb-[var(--space-12)]">
+    <main id="main-content" className="content-shell pb-[var(--space-12)]">
       <div className="grid gap-12 py-[var(--space-10)] lg:grid-cols-[1fr_280px]">
         <section aria-label="Contact form">
           <h1 className="max-w-text font-sans text-4xl font-bold leading-[1.1] tracking-[-1px] text-ink md:text-[40px]">

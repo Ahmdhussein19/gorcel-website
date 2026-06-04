@@ -14,6 +14,7 @@
   /* Typography */
   --font-sans: var(--font-dm-sans), "DM Sans", sans-serif;
   --font-mono: var(--font-dm-mono), "DM Mono", monospace;
+  --text-display: 56px;
 
   /* Spacing */
   --space-1: 4px;
@@ -33,7 +34,7 @@
   --margin-page: 64px;
   --margin-page-md: 32px;
   --margin-page-sm: 20px;
-  --max-content: 960px;
+  --max-content: 1282px;
   --max-text: 640px;
 
   /* Radius */
@@ -73,12 +74,14 @@
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
 
+  --text-display: 56px;
+
   --radius-sm: 2px;
   --radius-md: 4px;
   --radius-lg: 8px;
   --radius-none: 0px;
 
-  --max-width-content: 960px;
+  --max-width-content: 1282px;
   --max-width-text: 640px;
 
   --default-transition-timing-function: linear;
@@ -105,18 +108,43 @@ body {
   box-shadow: var(--shadow-focus);
 }
 
+.text-display {
+  font-size: var(--text-display);
+}
+
+@media (max-width: 639px) {
+  .text-display {
+    font-size: 40px;
+    letter-spacing: -1px;
+  }
+}
+
 .page-margin {
   margin-inline: var(--margin-page-sm);
+}
+
+.content-shell {
+  width: calc(100% - (var(--margin-page-sm) * 2));
+  max-width: var(--max-content);
+  margin-inline: auto;
 }
 
 @media (min-width: 768px) {
   .page-margin {
     margin-inline: var(--margin-page-md);
   }
+
+  .content-shell {
+    width: calc(100% - (var(--margin-page-md) * 2));
+  }
 }
 
 @media (min-width: 1024px) {
   .page-margin {
     margin-inline: var(--margin-page);
+  }
+
+  .content-shell {
+    width: calc(100% - (var(--margin-page) * 2));
   }
 }

@@ -34,6 +34,13 @@ Use these exact values. Never hardcode any other color.
 | `--color-volt`  | `--color-ink`   |
 | `--color-paper` | `--color-onyx`  |
 
+### Home Hero WebGL Exception
+- The home hero may use the supplied Three.js woven particle background as a canvas-only exception to the token color system.
+- Keep the hero background on `--color-paper`; do not use a dark hero panel for the particle field.
+- On the Paper hero surface, particle colors must use the reference component's light-surface branch: random HSL hue, saturation `0.8`, lightness `0.5`.
+- On the Paper hero surface, particle blending and opacity must use the reference component's light-surface branch: `NormalBlending` and `1.0`.
+- This exception does not apply to DOM text, buttons, dividers, borders, cards, or CSS backgrounds.
+
 ---
 
 ## 2. Typography
@@ -70,6 +77,12 @@ Use these exact values. Never hardcode any other color.
 - Never set `Gorcel` wordmark in all-caps
 - Never use any font outside this stack
 
+### Home hero H1 (tag triad)
+- **Copy:** `Act.` · `Work.` · `Operate.` — three Armenian-meaning tags with hard stops; **not a sentence**
+- **Type:** `--text-display` only (56px desktop, 40px mobile)
+- **Layout:** inline row `sm+`, stacked column on mobile; each tag is its own `<span>` inside one `<h1>`
+- **Accent:** Volt on periods only; no gradients, no radius above 8px
+
 ---
 
 ## 3. Spacing System
@@ -96,9 +109,21 @@ Base unit: **8px**. All spacing in multiples of 8.
 --margin-page:    64px;   /* Desktop horizontal page margin */
 --margin-page-md: 32px;   /* Tablet */
 --margin-page-sm: 20px;   /* Mobile */
---max-content:    960px;  /* Max content width */
+--max-content:    1282px; /* Max content width */
 --max-text:       640px;  /* Max readable text column width */
 ```
+
+### Layout Rail
+- Use `.content-shell` for every page-level wrapper, section wrapper, navbar inner wrapper, footer inner wrapper, and CTA band inner wrapper.
+- `.content-shell` is the only approved shared website rail: max width `1282px`, centered, with responsive gutters from the page margin tokens.
+- Use `--max-text` only for readable text blocks inside the wider `1282px` layout rail.
+- Do not create ad hoc page widths or mix `page-margin mx-auto max-w-content` on new layout wrappers.
+
+### Navbar
+- Height is exactly `72px`.
+- Navbar content uses `.content-shell`.
+- Navbar is a fixed transparent overlay at the top of the viewport, so hero media and particles can render behind it.
+- Initial state is transparent; after scroll, keep the background transparent and add blur with the standard `--color-ink-12` divider.
 
 ---
 

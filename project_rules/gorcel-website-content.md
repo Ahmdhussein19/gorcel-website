@@ -36,7 +36,14 @@ schema:
 **`<title>`:** Custom Software Development in MENA | Gorcel
 **Meta description:** When your tools don't connect and manual work slows you down, Gorcel builds software that fits how your business runs. Fixed cost, full ownership. Cairo-based, serving MENA.
 
-## H1: When your tools stop keeping up, we build the system that does
+## H1: Act. · Work. · Operate.
+
+Three Armenian-meaning tags — discrete display words with hard stops (periods). **Not a sentence.** No connecting words between tags.
+
+- **Styling:** `--text-display` (56px desktop, 40px mobile), DM Sans 700, `letter-spacing: -1.5px`, `line-height: 1.05`
+- **Layout:** one line on `sm+`, stack on mobile
+- **Accent:** Volt on periods only (under 7% composition)
+- **Semantic:** single `<h1>` containing three `<span>` tags
 
 > **Eyebrow:** Custom software development · Cairo · Serving MENA
 
@@ -47,6 +54,8 @@ Web and mobile software for businesses held back by disconnected tools and manua
 - Working software every cycle
 
 **[Get a fixed quote]** · **[See what we build]**
+
+**Hero background:** Use the supplied woven Three.js particle field on a Paper surface. Do not place the hero on a dark background. Use the reference component's light-surface particle colors and blending, and give the hero enough viewport height so the particle field is not visibly clipped near the CTA buttons.
 
 ---
 
