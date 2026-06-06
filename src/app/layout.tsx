@@ -34,6 +34,9 @@ export const metadata: Metadata = {
   verification: {
     google: 'your-google-verification-code',
   },
+  icons: {
+    icon: '/assets/gorcel-mark-angular-dark.svg',
+  },
 };
 
 export default function RootLayout({

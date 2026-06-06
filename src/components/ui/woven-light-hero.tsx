@@ -20,7 +20,6 @@ export const WovenLightHero = () => {
     mountNode.appendChild(renderer.domElement);
 
     const mouse = new THREE.Vector2(0, 0);
-    const clock = new THREE.Clock();
 
     const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
@@ -109,7 +108,6 @@ export const WovenLightHero = () => {
       ([entry]) => {
         isVisible = entry.isIntersecting;
         if (isVisible && !rafId) {
-          clock.getDelta(); // reset delta so no jump
           rafId = requestAnimationFrame(animate);
         }
       },
@@ -117,10 +115,10 @@ export const WovenLightHero = () => {
     );
     visibilityIO.observe(mountNode);
 
-    const animate = () => {
+    const animate = (time: number) => {
         if (!isVisible) { rafId = 0; return; }
         rafId = requestAnimationFrame(animate);
-        const elapsedTime = clock.getElapsedTime();
+        const elapsedTime = time / 1000;
         
         _mouseWorld.set(mouse.x * 3, mouse.y * 3, 0);
 
