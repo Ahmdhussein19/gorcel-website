@@ -9,7 +9,7 @@ import { Nav, CtaBand as Cta, Footer as Foot } from '@/components/chrome';
 const PROJECTS = [
   {
     n: '01',
-    title: 'edv.app',
+    title: 'outcomeflow.app',
     desc: 'An investment management platform that replaced a portfolio-wide spreadsheet system with a single, owned application.',
     tags: ['Web Application', 'Dashboards', 'Automation'],
     role: 'Design · Engineering',
